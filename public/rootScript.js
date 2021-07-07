@@ -12,7 +12,7 @@ const myPeer = new Peer(undefined,{
 		{ url: 'turn:numb.viagenie.ca', credential: 'nunnun', username: "rash75singh@yahoo.com" }
 	  ]},
 	host: '/',
-	port: '3001'
+	port: '443'
 })
 //Setting up layout for videos
 const gridVideo = document.getElementById('GridforVideos')
