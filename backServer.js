@@ -30,7 +30,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://ananyateams.herokuapp.com',
   clientID: '2FmZimL0g8MvERbSUEbF6Qf7i1nRrgyS',
   issuerBaseURL: 'https://dev-0fr9-x80.us.auth0.com'
 };
