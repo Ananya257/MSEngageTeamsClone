@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serverStart": "nodemon backServer.js",
-    "start": "concurrently \"node backServer.js\" \"peerjs --port 443\""
+    "start": "\"node backServer.js\" \"peerjs --port 443\""
   },
   "keywords": [],
   "author": "",
