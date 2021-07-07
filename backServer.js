@@ -1,6 +1,12 @@
 const express = require('express')
 const runExp = express()
 const server = require('http').Server(runExp)
+/*const { PeerServer } = require('peer');
+const peerServer = PeerServer(server, {
+	port: 9000,
+	debug: true,
+	});*/
+
 const socketIO = require('socket.io')(server)
 const {v4: uuidV4} = require('uuid')
 
