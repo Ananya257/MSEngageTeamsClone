@@ -1,0 +1,234 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.root{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.row{
+	display: flex;
+	flex-direction: row;
+	flex:0.95;
+	background-color: #171818;
+	overflow:hidden;
+}
+.screenleft{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+}
+.screenright{
+	flex: 0.23;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 10px;
+	display:none;
+}
+.videosSection{
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap;
+}
+#GridforVideos{
+	/*display: grid;
+	grid-template-columns: repeat(auto-fill, 300px);
+	grid-auto-flow: row;
+	grid-auto-rows: 300px;*/
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+	gap: 25px;
+}
+
+video{
+	width: 450px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 20px;
+	position: relative;
+}
+.video-container{
+	display: flex;
+	position: relative;
+}
+
+.name {
+	position: absolute;
+	display: flex;
+	top:80%;
+	left:0%;
+	z-index:1;
+	padding: 0.5em 0.5em 0.5em 2em;
+	background: rgba(242, 47, 70, 0.8);
+	color: #fff;
+	font-size: 14px;
+	line-height: 1;
+	font-family: 'Poppins', sans-serif;
+  }
+
+canvas{
+	width: 450px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 20px;
+	background-color: #F1EEF8;
+
+}
+
+.controls{
+	display:flex;
+	flex:0.05;
+	flex-flow: row wrap;
+	background-color: #6a3dd3;
+	color:honeydew;
+	padding: 15px;
+	justify-content: center;
+	padding: 2px;
+
+}
+
+.controlsGroup{
+	display: flex;
+	padding: 1px;
+	gap: 20px;
+	margin-left: auto;
+	padding:2px 10px;
+
+}
+.controlsButton{
+	background-color: #F1EEF8;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 10px;
+	font-size: 24px;
+	cursor: pointer;
+	border-radius: 50%;
+	color: #6a3dd3;
+}
+.controlsButton:hover{
+	background-color: gainsboro;
+	border-radius: 50%;
+}
+
+.leave{
+	justify-content: end;
+	display: flex;
+	background-color: #E14444;
+	font-size: 18px;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+    padding-bottom: 2px;
+    padding-top: 5px;
+    padding-right: 2px;
+    padding-left: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+
+	border-radius: 10px;
+	width: 100px;
+	height: 30px;
+	justify-content: center;
+
+}
+
+.header{
+	font-family: 'Poppins', sans-serif; 
+	color:#10021D; 
+	font-size:30px; 
+	padding:2px;
+	height: 50px;
+	text-align: center;
+}
+
+.chatArea{
+	flex-grow:0.9;
+	overflow-y: scroll;
+}
+
+
+.chats{
+	padding: 10px 1px;
+	display: flex;
+	display: inline-block;
+	list-style-type:none;
+	font-family: 'Poppins', sans-serif; 
+	font-size: 14px;
+
+}
+.typeArea{
+	flex: 0.1;
+	background-color: white;
+}
+
+.typeArea input{
+	border-radius: 10px;
+	flex-grow: 1;
+	background-color: #F1EEF8;
+	color: #10021d;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 40px;
+	width: 302px;
+	font-family: 'Poppins', sans-serif;
+	overflow-wrap: break-word;
+	border:none;
+	padding-left: 10px;
+
+}
+.typeArea input:focus{
+	outline: none;
+}
+.message{
+	color: white;
+	background-color: #6a3dd3;
+	margin: 0 0 10px 0;
+	overflow-wrap: break-word;
+	width: 180px;
+	padding: 5px;
+	border-radius: 10px;
+	margin-left: 5px;
+	
+}
+
+
+.myMessage{
+	color: #10021d;
+	background-color: #F1EEF8;
+	margin: 0 0 10px 0;
+	margin-left: 135px;
+	overflow-wrap: break-word;
+	width: 180px;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.chatArea::-webkit-scrollbar {
+	flex-grow: 1;
+	border-radius: 20px;
+	width: 10px;
+  }
+  
+.chatArea::-webkit-scrollbar-track {
+	background: #B1AACB       /* color of the tracking area */
+}
+
+.chatArea::-webkit-scrollbar-thumb {
+	background-color: #7540EE;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+
+}
+

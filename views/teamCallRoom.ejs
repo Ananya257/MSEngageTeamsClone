@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		const CALL_ID = "<%= roomId %>"
+	</script>
+<script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="rootScript.js" defer></script>
+<script src="controls.js" defer></script>
+<script src="chat.js" defer></script>
+<link href="meetingRoomStyle.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+
+	<title>Ananya's Teams</title>
+	
+</head>
+<body>
+	<div class = "root">
+		<div class = "row">
+		<aside class ="screenleft">
+			<div class = "videosSection">
+				<div id = "GridforVideos"></div>
+			</div>
+		</aside>
+		<aside class = "screenright">
+			<div class = "header">
+				<h5 style="margin-top: 5px;">Chat</h5>
+			</div>
+		
+				<div class = "chatArea">
+					<ul class = "chats">
+
+					</ul>
+				</div>
+				<div class = "typeArea">
+					<input id="chatMess" type="text" placeholder="Type here: ">
+				</div>
+		</aside>
+		</div>
+
+		<div class = "controls">
+			<div class = "controlsGroup">
+				<div onclick = "Toggle()" class = "controlsButton mic">
+					<i class="bi bi-mic-fill"></i>
+				</div>
+				<div onclick = "VideoToggle()" class = "controlsButton camera">
+					<i class="bi bi-camera-video-fill"></i>
+				</div>
+				<div onclick = "ChatWindowToggle()" class = "controlsButton chatButton">
+					<i class="bi bi-chat-left-dots-fill"></i>
+				</div>
+			</div>
+			<div class = "controlsGroup">
+				<div class="leave">Leave</div>
+			</div>
+			
+		</div>
+
+	</div>
+</body>
+</html>
