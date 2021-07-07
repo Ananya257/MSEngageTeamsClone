@@ -6,6 +6,20 @@ const peerServer = PeerServer(server, {
 	port: 9000,
 	debug: true,
 	});*/
+/*var ExpressPeerServer = require("peer").ExpressPeerServer;
+
+var peerServer = ExpressPeerServer(server, {
+	debug:true
+})*/
+ //runExp.use("/peerjs", peerServer);
+
+ var ExpressPeerServer = require("peer").ExpressPeerServer;    
+var options = {
+  debug: true,
+  allow_discovery: true,
+};
+let peerServer = ExpressPeerServer(server, options);
+runExp.use("/peerjs", peerServer);
 
 const socketIO = require('socket.io')(server)
 const {v4: uuidV4} = require('uuid')
@@ -73,6 +87,8 @@ socketIO.on('connection', socket =>{
 
 	})
 })
+
+
 
 server.listen(process.env.PORT || 3000)
 
