@@ -49,6 +49,11 @@ socket.on('getName', userProfile=>{
 	addOverlayTextVideo(videoCont,myName)
 })
 
+let call = null;
+myPeer.on('call',_call=>{
+	call = _call
+})
+
 
 //Permission for video and audio
 navigator.mediaDevices.getUserMedia({
@@ -60,26 +65,45 @@ navigator.mediaDevices.getUserMedia({
 	myStream = stream;
 
 	// All users that had already joined the room calls new user to connect with them
-	myPeer.on('call', call=> {
-		//New user for it to connect answers the incoming call
+	if(!call){
+		myPeer.on('call', call=> {
+			//New user for it to connect answers the incoming call
+			call.answer(stream)
+
+			//Video object and stream of previous users created for the new user
+			const video = document.createElement('video')
+			const videoContainer = document.createElement('div')
+			videoContainer.classList.add("video-container")
+			videoContainer.append(video)
+			addOverlayTextVideo(videoContainer,call.metadata.name)
+
+			call.on('stream', userVideoStream =>{
+				//video.id = call.metadata.id 
+				videoContainer.id = call.metadata.id 
+				peopleJoined[call.metadata.id] = {"calltag": call, "name": call.metadata.name}
+				startVideoLive(video, userVideoStream, videoContainer)
+			})
+
+
+		})
+	}
+	else{
 		call.answer(stream)
 
-		//Video object and stream of previous users created for the new user
-		const video = document.createElement('video')
-		const videoContainer = document.createElement('div')
-		videoContainer.classList.add("video-container")
-		videoContainer.append(video)
-		addOverlayTextVideo(videoContainer,call.metadata.name)
+			//Video object and stream of previous users created for the new user
+			const video = document.createElement('video')
+			const videoContainer = document.createElement('div')
+			videoContainer.classList.add("video-container")
+			videoContainer.append(video)
+			addOverlayTextVideo(videoContainer,call.metadata.name)
 
-		call.on('stream', userVideoStream =>{
-			//video.id = call.metadata.id 
-			videoContainer.id = call.metadata.id 
-			peopleJoined[call.metadata.id] = {"calltag": call, "name": call.metadata.name}
-			startVideoLive(video, userVideoStream, videoContainer)
-		})
-
-
-	})
+			call.on('stream', userVideoStream =>{
+				//video.id = call.metadata.id 
+				videoContainer.id = call.metadata.id 
+				peopleJoined[call.metadata.id] = {"calltag": call, "name": call.metadata.name}
+				startVideoLive(video, userVideoStream, videoContainer)
+			})
+	}
 	// function to connect this user to new users
 	socket.on('userConnected',user =>{
 		console.log("User Connected: " + user["id"])
