@@ -13,7 +13,7 @@ const myPeer = new Peer(undefined,{
 	  ]},
 	host: '/',
 	port: '443',
-	secure: true
+	//secure: true
 })
 //Setting up layout for videos
 const gridVideo = document.getElementById('GridforVideos')
