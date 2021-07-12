@@ -13,6 +13,8 @@ const myPeer = new Peer(undefined,{
 	  ]},
 	  host: "ananyateams.herokuapp.com",
 	  port: "",
+	 // host: "/",
+	  //port: "3001",
 	  path: "/peerjs",
 })
 //Setting up layout for videos
@@ -24,6 +26,7 @@ videoCont.append(myVideo)
 myVideo.muted = true;
 
 var myID;
+var myLoginId
 let myStream
 var myName
 const peopleJoined = {} //all the users that are currently in the same call room
@@ -165,6 +168,17 @@ function connectOthers(userID,stream, userName){
 	})
 	peopleJoined[userID] = {"calltag": callPeer, "name" : userName}
 }
+
+socket.on('sendMyInfo',userProfile=>{
+	if(userProfile != null){
+		myLoginId = userProfile.sub
+	}
+})
+
+var url = ("https://ananyateams.herokuapp.com/" + CALL_ID)
+	var ur = document.getElementById('Link')
+	console.log(ur)
+	ur.value = url;
 
 
 

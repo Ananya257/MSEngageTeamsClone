@@ -89,5 +89,20 @@ function setOffButton(mic){
 	
 }
 
+function onLeave(){
+	window.location = "https://ananyateams.herokuapp.com/groupRooms"
+}
+
+function onClickLink(){
+	var url = document.getElementById('Link')
+	url.select();
+  url.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  
+}
+
 
 

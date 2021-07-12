@@ -13,8 +13,10 @@
 <script src="rootScript.js" defer></script>
 <script src="controls.js" defer></script>
 <script src="chat.js" defer></script>
+<script src="popUp.js" defer></script>
 <link href="meetingRoomStyle.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 	<title>Ananya's Teams</title>
 	
@@ -44,6 +46,11 @@
 		</div>
 
 		<div class = "controls">
+			<div class="controlsGroup grp1">
+				<div class="controlsButton link" data-modal-target="#PopUpLink">
+					<i class="fas fa-link"></i>
+				</div>
+			</div>
 			<div class = "controlsGroup">
 				<div onclick = "Toggle()" class = "controlsButton mic">
 					<i class="bi bi-mic-fill"></i>
@@ -56,10 +63,25 @@
 				</div>
 			</div>
 			<div class = "controlsGroup">
-				<div class="leave">Leave</div>
+				<div class="leave" onclick="onLeave()">Leave</div>
 			</div>
 			
 		</div>
+
+		<div class="PopUp" id="PopUpLink">
+			<div class="popHeader">
+				<div class="PopUp-head">Room Link</div>
+			<button data-close-button class="close">&times;</button>
+			</div>
+			<textarea id="Link" readonly>
+	
+				</textarea>
+				<div class="copyButton">
+					<button data-close-button id="copy" onclick="onClickLink()"><i class="fas fa-copy"></i>  Copy to Clipboard</button>
+				</div>
+		</div>
+
+		<div id='overlay'></div>
 
 	</div>
 </body>

@@ -1,7 +1,70 @@
-.body{
-	background: url(Resources/bgImg.jpg) no-repeat center center fixed; 
+body{
+	background: url("Resources/bgImgLanding.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow-y: hidden;
+
+}
+
+.root{
+	height: 100vh;
+	display: flex;
+  flex-direction: row;
+  
+}
+.col1{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  flex:0.5;
+}
+.col2{
+  flex: 0.5;
+}
+
+.logoName{
+  flex:0.175;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headline{
+  flex: 0.4;
+  margin-left: 70px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 55px;
+  word-wrap: break-word;
+  justify-content: center;
+
+}
+.smallMsg{
+ flex: 0.1;
+ font-family: 'Poppins', sans-serif;
+ word-wrap: break-word;
+ font-size:20px;
+ margin-left: 70px;
+}
+.buttonsAuth{
+  flex: 0.2;
+  padding-left: 270px;
+  padding-top: 50px;
+  justify-content: center;
+  
+}
+
+.btn{
+  font-family: 'Poppins', sans-serif;
+  background-color: #6a3dd3;
+  color: white;
+  border:none;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 25px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #8256e9;
 }
