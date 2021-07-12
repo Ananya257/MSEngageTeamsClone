@@ -197,14 +197,14 @@ runExp.get('/:teamCallRoom', (req, res) =>{
 		})
 
 		//Send chats of this user to others
-		 socket.on('message', message =>{
+		 socket.on('message', (message,myName,myID) =>{
 			 console.log(userCurrRoomID)
 			 console.log(0)
 			client.db("AnanyaTeams").collection("Rooms").updateOne(
 				{ _id: roomId},
-				{ $push: { chats: {name: userName,message: message, userID: userProfile.sub }} }
+				{ $push: { chats: {name: myName,message: message, userID: myID }} }
 			 )
-			socketIO.to(roomId).emit('createChat',({message: message, userID: userID}))
+			socketIO.to(roomId).emit('createChat',({message: message, userID: myID}))
 		})
 
 
