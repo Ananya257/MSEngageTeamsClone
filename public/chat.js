@@ -20,7 +20,7 @@ $('html').keydown((e) =>{
 //Creating chat message for all connected users after socket has brodcasted to them
 socket.on('createChat', msg =>{
 	console.log("this"+msg.message)
-	if(msg.userID != myLoginId){
+	if(msg.userID != myID){
 		$('.chats').append(`<li class = "message"><b>${peopleJoined[msg.userID].name}</b><br/>${msg.message}<br/></li>`)
 	}
 	else{

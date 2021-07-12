@@ -204,7 +204,7 @@ runExp.get('/:teamCallRoom', (req, res) =>{
 				{ _id: roomId},
 				{ $push: { chats: {name: myName,message: message, userID: myID }} }
 			 )
-			socketIO.to(roomId).emit('createChat',({message: message, userID: myID}))
+			socketIO.to(roomId).emit('createChat',({message: message, userID: userID}))
 		})
 
 
