@@ -23,7 +23,7 @@ runExp.use("/peerjs", peerServer);
 
 const socketIO = require('socket.io')(server)
 const {MongoClient} = require('mongodb')
-const urldb = 'mongodb+srv://anna257:ananya@cluster0.vhioq.mongodb.net/AnanyaTeams?retryWrites=true&w=majority'
+const urldb = process.env.MONGODB_URI
 const {v4: uuidV4} = require('uuid')
 const roomName = "ab"
 //const callURL = "https://ananyateams.herokuapp.com/" + RoomID
