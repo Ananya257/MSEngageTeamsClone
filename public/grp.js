@@ -2,6 +2,7 @@ var myName;
 var myID;
 //console.log(socket)
 var videoCallID;
+//Create a new room
 function onCreateRoomPopUp(){
 	var name = document.getElementById('TypeBox').value
 	if(name.length>0){
@@ -9,6 +10,7 @@ function onCreateRoomPopUp(){
 	}
 }
 
+//Join a room
 function onJoinRoomPopUp(){
 	var roomID = document.getElementById('TypeBoxJoin').value
 	if(roomID.length>0){
@@ -83,6 +85,7 @@ function onCreateRoomEnter(name){
 	})
 }
 
+//All room buttons listener 
 var currRoom = null
 var prevButton;
 function onClickaRoom(button){
@@ -156,6 +159,8 @@ socket.on('prevRooms',roomsArr =>{
 
 })
 
+//Sending chats on group rooms
+
 let text = $('input')
 $('html').keydown((e) =>{
 	if(e.which == 13 && text.val().length!=0){
@@ -185,6 +190,7 @@ function scrollChat(){
 	chatWindow.scrollTop(chatWindow.prop("scrollHeight"))
 }
 
+//getting previous chats of a room
 socket.on('addPrevChatsOnFront',prev =>{
 	for(let i=0;i<prev.length;i++){
 		if(prev[i].userID != myID){
@@ -203,10 +209,12 @@ socket.on('sendMyInfo',userProfile=>{
 	}
 })
 
+//Redirect to video call on clicking video button
 function onClickVideo(){
 	window.location = ("https://ananyateams.herokuapp.com/" + videoCallID)
 }
 
+//Getting sharable link 
 function onClickLink(){
 	var url = document.getElementById('Link')
 	url.select();
